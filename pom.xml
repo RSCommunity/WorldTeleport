@@ -15,6 +15,10 @@
             <id>vault-repo</id>
             <url>http://nexus.hc.to/content/repositories/pub_releases</url>
         </repository>
+        <repository>
+            <id>kunonx-repo</id>
+            <url>https://dev.kunonx.com/nexus/content/repositories/kunonx-repo</url>
+        </repository>
     </repositories>
     <dependencies>
         <!--Spigot API-->
