@@ -1,0 +1,33 @@
+{
+  "System": {
+    "TITLE": "&1SyncWorldTeleport GUI",
+    "UNEXPECT_DISABLED_PLUGIN": "WorldInventory just close caused by unexpected plugin disabling.",
+    "PLUGIN_LOAD_COMPLETE": "The plugin was loaded successfully.",
+    "LANGUAGE_CHANGED": "The language now change {0} to {1}.",
+    "UNKNOWN_COMMAND": "Unknown command. use command: {0}",
+    "CLICK_TO_MOVE": "Click to move",
+	"DENY_PERMISSION": "You cannot go to this world without permission.",
+	"DENY_TELEPORT": "Unauthorized worlds cannot moved.",
+	"DENY_ADD_LOCATION": "You didn't have permission and could not add the location.",
+	"DENY_DEL_LOCATION": "You didn't have permission and could not delete the location.",
+	"REACHED_AMOUNT_LOCATION": "You have exceeded the number of locations you can specify!"
+  },
+  "Words": {
+    "CURRENTLY_HERE": "You're here",
+    "SUNNY": "Sunny",
+    "STORM": "Storm",
+    "USUGE": "Using Percent",
+	"TIME": "Time",
+	"ENABLE": "enabled",
+	"DISABLE": "disabled",
+	"ADD": "added",
+	"DEL": "deleted"
+  },
+  "Config": {
+    "CLICK_SOUND": "Using click sound of GUI was {0}.",
+	"CLOSE_SOUND": "Using close sound of GUI was {0}.",
+	"OPEN_SOUND": "Using open sound of GUI was {0}.",
+	"LOCATION": "The location was {0} successfully.",
+	"UNKNOWN_LOCATION": "Unknown location. {0}"
+  }
+}

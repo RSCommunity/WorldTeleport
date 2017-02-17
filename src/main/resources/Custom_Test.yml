@@ -1,0 +1,85 @@
+#
+# Custom world inventory configuration example
+#
+#Main:
+#  Title: "&aCustom World Inventory" --> Recommand, If there is no such value, Set a hash value.
+#  Table_Size: <auto> --> Required. If value is <auto>, It is set automatically by the server.
+#  Sound: --> Recommand. about sound settings.
+#    Enabled: true --> Set a sound, default is true
+#    Open_Sound: --> The sound when the player is open this world inventory
+#      Value: ENTITY_EXPERIENCE_ORB_PICKUP --> The default sound that opening the inventory. default is ENTITY_EXPERIENCE_ORB_PICKUP.
+#      Volume: 0.75
+#      Pitch: 1.0
+#    Close_Sound: --> The sound when the player is close this world inventory
+#      Value: BLOCK_CHEST_OPEN --> The default sound that closing the inventory. default is BLOCK_CHEST_OPEN.
+#      Volume: 0.75
+#      Pitch: 1.4
+#    Click_Sound: --> The sound when the player is click specific block
+#      Value: BLOCK_CHEST_CLOSE --> The default sound that clicking the GUI block. default is BLOCK_CHEST_CLOSE.
+#      Volume: 0.75 
+#      Pitch: 1.4
+#
+#Worlds: --> Default root
+#  world: --> Required. Object name. It does not matter anything :)
+#    Enabled: true  --> Optional. The name of the world.
+#    World: world --> Required.
+#    LOC-X: 4 --> Required.
+#    LOC-Y: 1 --> Required.
+#    Name: "&e&lMy test world" --> Recommand. If not set, Set to Object name.
+#    Icon: --> Required. Sets the icon for the GUI block.
+#      ID: LOG --> Required. Supports integer type. However, it's not recommended.
+#      Data: 2  --> Optional. 
+#    description: --> Optional. If you do not set this, it will be shown as the default setting.
+#    - "&eThis is test world."
+#    - "&b&nThe %world% is ready for %player_name%"
+#    - "&eUsing player:&f [&a %using_player% &6/&a %online_player% &f]"
+#    Permission: --> Optional.
+#      Enabled: false
+#      Custom: syncworldteleport.custompass.world
+#    Sound: --> Optional.
+#      Enabled: true
+#      Click_Sound:
+#        Value: ENTITY_EXPERIENCE_ORB_PICKUP
+#        Volume: 0.75
+#        Pitch: 1.4
+
+Main:
+  Title: "&aCustom World Inventory"
+  Table_Size: "<auto>"
+  Sound:
+    Enabled: true
+    Open_Sound:
+      Value: ENTITY_EXPERIENCE_ORB_PICKUP
+      Volume: 0.75
+      Pitch: 1.0
+    Close_Sound:
+      Value: BLOCK_CHEST_OPEN
+      Volume: 0.75
+      Pitch: 1.4
+    Click_Sound:
+      Value: BLOCK_CHEST_CLOSE
+      Volume: 0.75
+      Pitch: 1.4
+Worlds:
+  Example:
+    Enabled: true
+    World: world
+    LOC-X: 4
+    LOC-Y: 1
+    Name: "&e&lMy test world"
+    Icon:
+      ID: LOG
+      Data: 2
+    description:
+    - "&eThis is test world."
+    - "&b&nThe %world% is ready for %player_name%"
+    - "&eUsing player:&f [&a %using_player% &6/&a %online_player% &f]"
+    Permission:
+      Enabled: false
+      Custom: syncworldteleport.custompass.world
+    Sound:
+      Enabled: true
+      Click_Sound:
+        Value: ENTITY_EXPERIENCE_ORB_PICKUP
+        Volume: 0.75
+        Pitch: 1.4

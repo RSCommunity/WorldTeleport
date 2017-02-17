@@ -1,0 +1,46 @@
+name: WorldTeleport
+version: 1.1.0
+main: io.github.kunonx.WorldTeleport.WorldTeleport
+depend: [DesignFramework]
+author: kunonx
+description: The virtual GUI showing enabled the world list of server.
+permissions:
+  worldteleport.*:
+    default: op
+    description: Allows use of all WorldTeleport administrator commands.
+    children:
+      syncworldteleport.reload: true
+      syncworldteleport.admin.*: true
+  worldteleport.teleport:
+    default: true
+    description: Allows use of WorldTeleport the teleport command.
+  worldteleport.publicteleport:
+    default: true
+    description: Allows use of WorldTeleport the public location teleport command.
+  worldteleport.reload:
+    description: Allows use of WorldTeleport plugin reload command.
+  worldteleport.open:
+    default: true
+    description: Allows use of open world inventory command.
+  worldteleport.main.*:
+    default: op
+    description: Allows use of all WorldTeleport configure commands.
+    children:
+      worldteleport.main.location.*: true
+      worldteleport.main.set.*: true
+  worldteleport.main.location.add:
+    default: true
+    description: Allows use of adding location command.
+  worldteleport.main.location.add.others:
+    description: Allows use of adding location to other player command. 
+  worldteleport.main.location.delete:
+    default: true
+    description: Allows use of removing location command.
+  worldteleport.main.location.delete.others:
+    description: Allows use of removing location to other player command.
+  worldteleport.main.location.list:
+    default: true
+    description: Allows use of showing the location list command.
+  worldteleport.main.location.list.others:
+    description: Allows use of showing the location list from other player command.
+      
