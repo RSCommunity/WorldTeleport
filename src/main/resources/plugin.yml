@@ -1,8 +1,8 @@
 name: WorldTeleport
 version: 1.1.0
-main: io.github.kunonx.WorldTeleport.WorldTeleport
-depend: [DesignFramework]
-author: kunonx
+main: work.ruskonert.minecraft.worldteleport.WorldTeleport
+depend: [Ruskit]
+author: [kunonx, Ruskonert]
 description: The virtual GUI showing enabled the world list of server.
 permissions:
   worldteleport.*:
