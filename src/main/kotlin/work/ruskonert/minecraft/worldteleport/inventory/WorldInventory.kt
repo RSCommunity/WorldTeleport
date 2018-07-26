@@ -1,8 +1,10 @@
 package work.ruskonert.minecraft.worldteleport.inventory
 
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
+import io.github.ruskonert.ruskit.command.misc.Permission
 import io.github.ruskonert.ruskit.config.SynchronizeReader
 import io.github.ruskonert.ruskit.entity.AbstractInventory
-import io.github.ruskonert.ruskit.entity.SerializableEntity
 import io.github.ruskonert.ruskit.entity.inventory.InventoryComponent
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
@@ -10,12 +12,40 @@ import java.util.*
 
 class WorldInventory : AbstractInventory
 {
+    private var rows : Int = 5
+
+    private var accessPermission : Permission? = null
+
+    private var aliasCommand : String? = null
+
     override fun serialize(): String
     {
-        return ""
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("inventoryName", this.getInventoryName())
+        if(accessPermission != null)
+            jsonObject.addProperty("accessPermission", accessPermission!!.getPermissionName())
+        jsonObject.addProperty("rows", this.rows)
+        if(aliasCommand != null)
+            jsonObject.addProperty("alias-command", this.aliasCommand)
+
+        val gson = GsonBuilder().serializeNulls()
+                .registerTypeAdapter(WorldInventoryComponent::class.java,
+                        WorldInventoryComponent())
+                .create()
+        val itemObject = JsonObject()
+        for(key in this.getSlotComponents().keys)
+        {
+            val value = this.getSlotComponents()[key]
+            itemObject.add(UUID.randomUUID().toString(),gson.toJsonTree(value, WorldInventoryComponent::class.java))
+        }
+
+        jsonObject.add("items", itemObject)
+        return jsonObject.toString()
     }
 
-    override fun deserialize(): SerializableEntity<AbstractInventory>?
+    private constructor(inventoryName : String) : super(inventoryName)
+
+    override fun getEntity(element: Any): WorldInventory?
     {
         return null
     }
@@ -27,6 +57,7 @@ class WorldInventory : AbstractInventory
         {
             this.setComponent(i, WorldInventoryComponent())
         }
+        this.setRefreshMode(true)
     }
 
     constructor() : super("public inventory")
@@ -90,6 +121,8 @@ class WorldInventory : AbstractInventory
     override fun onInit(handleInstance: Any?): Any?
     {
         super.onInit(this)
+        if(this.enableRefreshMode())
+            this.toDataSerialize()
         val inventoryBase = this.getInventoryBase()!!
         if(this.getSlotComponents().isNotEmpty()) {
             for (slot in this.getSlotComponents().keys) {
@@ -118,6 +151,5 @@ class WorldInventory : AbstractInventory
             }
         }
         return inventoryBase
-
     }
 }

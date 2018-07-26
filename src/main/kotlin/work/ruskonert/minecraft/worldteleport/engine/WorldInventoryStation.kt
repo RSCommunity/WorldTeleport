@@ -32,7 +32,6 @@ class WorldInventoryStation : RuskitThread()
         {
             if(wi.isActivated())
             {
-                // TODO("implement the code")
             }
         }
         return true
@@ -71,7 +70,10 @@ class WorldInventoryStation : RuskitThread()
             {
                 e.isCancelled = true
                 val function = e.clicked!!.getClickFunction()
-                if(function != null) function(e.executor)
+                if(function != null) {
+                    function(e.executor)
+                    e.executor.closeInventory()
+                }
             }
         }
     }
